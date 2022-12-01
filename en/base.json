@@ -1,4 +1,7 @@
 {
   "yes": "Yes",
-  "no": "No"
+  "no": "No",
+  "hello": {
+    "world": "Hello World, {name}!"
+  }
 }
