@@ -2851,8 +2851,19 @@ function getFilesRecursive(p) {
       console.log(`Mergin ${locale}`);
       
       const objects = getFilesRecursive(path.join(githubWorkpace, locale));
-
       const output = Object.assign({}, ...objects);
+
+      let lastOutput;
+      try {
+        lastOutput = JSON.parse(fs.readFileSync(path.join(githubWorkpace, locale, 'output.json')).toString());
+      } catch (e) {}
+
+      core.setOutput(
+        'needpush', 
+        lastOutput && JSON.stringify(lastOutput) !== JSON.stringify(output)
+          ? '1'
+          : '0',
+      );
 
       fs.writeFileSync(
         path.join(githubWorkpace, locale, 'output.json'),
