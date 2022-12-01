@@ -29,7 +29,7 @@ function getFilesRecursive(p) {
     const locales = JSON.parse(fs.readFileSync(path.join(githubWorkpace, 'locales.json')).toString());
   
     for (const locale of locales) {
-      console.log(`Mergin ${locale}`);
+      console.log(`Merging ${locale}`);
       
       const objects = getFilesRecursive(path.join(githubWorkpace, locale));
       const output = Object.assign({}, ...objects);
