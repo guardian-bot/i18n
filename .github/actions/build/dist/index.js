@@ -2863,9 +2863,9 @@ function getFilesRecursive(p, root = false) {
 
       core.setOutput(
         'needpush', 
-        lastOutput && JSON.stringify(lastOutput) !== JSON.stringify(output)
-          ? '1'
-          : '0',
+        lastOutput && JSON.stringify(lastOutput) === JSON.stringify(output)
+          ? '0'
+          : '1',
       );
 
       fs.writeFileSync(
