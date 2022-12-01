@@ -2831,6 +2831,7 @@ function getFilesRecursive(p) {
 
   for (const f of result) {
     if (['json'].includes(f.split('.').pop())) {
+      console.log(`Found file ${f}`);
       const content = JSON.parse(fs.readFileSync(path.join(p, f)).toString());
       files.push(content);
     } else {
