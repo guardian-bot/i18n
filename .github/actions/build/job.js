@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const fs = require('fs');
 const path = require('path');
 
-function getFilesRecursive(p) {
+function getFilesRecursive(p, root = false) {
   const files = [];
 
   let result = [];
@@ -11,6 +11,8 @@ function getFilesRecursive(p) {
   } catch (e) {}
 
   for (const f of result) {
+    if (root && f === 'output.json') continue;
+
     if (['json'].includes(f.split('.').pop())) {
       console.log(`Found file ${f}`);
       const content = JSON.parse(fs.readFileSync(path.join(p, f)).toString());
@@ -32,7 +34,7 @@ function getFilesRecursive(p) {
     for (const locale of locales) {
       console.log(`Merging ${locale}`);
       
-      const objects = getFilesRecursive(path.join(githubWorkpace, locale));
+      const objects = getFilesRecursive(path.join(githubWorkpace, locale), true);
       const output = Object.assign({}, ...objects);
 
       let lastOutput;
