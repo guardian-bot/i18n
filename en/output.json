@@ -1,4 +1,6 @@
 {
+  "yes": "Yes",
+  "no": "No",
   "hello": "Hello",
   "world": "World"
 }
