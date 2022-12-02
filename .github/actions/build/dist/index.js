@@ -2847,6 +2847,7 @@ function getFilesRecursive(p, root = false) {
 (async () => {
   try {
     const githubWorkpace = core.getInput('path');
+    let changes = false;
 
     const locales = JSON.parse(fs.readFileSync(path.join(githubWorkpace, 'locales.json')).toString());
   
@@ -2861,18 +2862,16 @@ function getFilesRecursive(p, root = false) {
         lastOutput = JSON.parse(fs.readFileSync(path.join(githubWorkpace, locale, 'output.json')).toString());
       } catch (e) {}
 
-      core.setOutput(
-        'needpush', 
-        lastOutput && JSON.stringify(lastOutput) === JSON.stringify(output)
-          ? '0'
-          : '1',
-      );
+      if (!changes && !lastOutput || JSON.stringify(lastOutput) !== JSON.stringify(output))
+        changes = true;
 
       fs.writeFileSync(
         path.join(githubWorkpace, locale, 'output.json'),
         JSON.stringify(output, null, 2),
       );
     }
+
+    core.setOutput('needpush', changes ? '1' : '0');
   } catch (error) {
     core.setFailed(error.message);
   }
