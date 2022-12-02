@@ -4,5 +4,14 @@
   "buttons": {
     "create_appeal": "Create Appeal",
     "how_to_appeal": "How to Appeal"
+  },
+  "embeds": {
+    "penalty_notification": {
+      "title": "You've received a penalty on {server_name}",
+      "description": "Use the button below to appeal your penalty",
+      "fields": {
+        "custom_message": "Custom Server Information for Appeals"
+      }
+    }
   }
 }
