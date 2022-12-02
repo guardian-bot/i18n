@@ -1,7 +1,8 @@
 {
   "yes": "Ja",
   "no": "Nein",
-  "hello": {
-    "world": "Hallo Welt, {name}!"
+  "buttons": {
+    "create_appeal": "Entbannungsantrag erstellen",
+    "how_to_appeal": "Wie erstelle ich einen Entbannungsantrag?"
   }
 }

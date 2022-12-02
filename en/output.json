@@ -1,7 +1,8 @@
 {
   "yes": "Yes",
   "no": "No",
-  "hello": {
-    "world": "Hello World, {name}!"
+  "buttons": {
+    "create_appeal": "Create Appeal",
+    "how_to_appeal": "How to Appeal"
   }
 }
