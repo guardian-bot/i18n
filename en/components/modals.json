@@ -9,6 +9,13 @@
           "admit": "Test"
         }
       }
+    },
+    "create_appeal_reply": {
+      "title": "Send a Reply to the User",
+      "message": {
+        "label": "Message",
+        "placeholder": "This content will be sent to the user"
+      }
     }
   }
 }
