@@ -1,6 +1,9 @@
 {
   "buttons": {
     "how_to_appeal": "How to Appeal",
-    "privacy_policy": "Privacy Policy"
+    "privacy_policy": "Privacy Policy",
+    "extended_user_information": "Extendes User Information",
+    "show_banlog": "Banlog",
+    "create_appeal_reply": "Create a Reply"
   }
 }

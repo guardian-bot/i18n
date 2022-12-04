@@ -6,6 +6,42 @@
       "fields": {
         "custom_message": "Custom Server Information for Appeals"
       }
+    },
+    "appeals": {
+      "initial": {
+        "title": "New Appeal",
+        "description": "new appeal wow omg cool",
+        "fields": {
+          "penalty_type": {
+            "name": "Penalty Type",
+            "value": "{type}"
+          },
+          "user": {
+            "name": "User",
+            "value": "{user}"
+          },
+          "user_choice": {
+            "name": "User Choice",
+            "value": {
+              "deny": "Deny",
+              "admit": "Admit"
+            }
+          },
+          "reason": {
+            "name": "Reason",
+            "empty": "*No reason available*"
+          },
+          "expiration_date": {
+            "name": "Expiration Date",
+            "value": "Expires on <t:{timestamp}:F>\nExpires in <t:{timestamp}:R>",
+            "empty": "*No expiration date set*"
+          },
+          "created_at": {
+            "name": "Created At",
+            "value": "<t:{timestamp}:F>"
+          }
+        }
+      }
     }
   }
 }
