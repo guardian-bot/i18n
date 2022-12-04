@@ -45,6 +45,10 @@
       "created_dm": {
         "title": "Appeal Created Successfully",
         "description": "Your appeal was successfully created. We will inform you about any updates here."
+      },
+      "confirm_staff_reply": {
+        "title": "Confirm your Reply",
+        "description": "The following message is sent to the user. Check the message and click \"Send Reply\" if everything is correct."
       }
     }
   }
