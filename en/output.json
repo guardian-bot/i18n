@@ -2,8 +2,20 @@
   "yes": "Yes",
   "no": "No",
   "buttons": {
-    "create_appeal": "Create Appeal",
     "how_to_appeal": "How to Appeal"
+  },
+  "select_menus": {
+    "create_appeal": {
+      "placeholder": "Do you believe you were rightly punished for your alleged offense?",
+      "options": {
+        "admit": {
+          "label": "Yes, I admit the alleged offense"
+        },
+        "deny": {
+          "label": "No, I deny the alleged offense"
+        }
+      }
+    }
   },
   "embeds": {
     "penalty_notification": {
