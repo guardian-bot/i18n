@@ -2,7 +2,7 @@
   "yes": "Ja",
   "no": "Nein",
   "buttons": {
-    "create_appeal": "Entbannungsantrag erstellen",
-    "how_to_appeal": "Wie erstelle ich einen Entbannungsantrag?"
+    "how_to_appeal": "Wie erstelle ich einen Entbannungsantrag?",
+    "privacy_policy": "Datenschutzrichtlinien"
   }
 }

@@ -2,7 +2,20 @@
   "yes": "Yes",
   "no": "No",
   "buttons": {
-    "how_to_appeal": "How to Appeal"
+    "how_to_appeal": "How to Appeal",
+    "privacy_policy": "Privacy Policy"
+  },
+  "modals": {
+    "create_appeal": {
+      "title": "Appeal for your Penalty",
+      "message": {
+        "label": "Message",
+        "placeholder": {
+          "deny": "Describe why you deny the alleged offense",
+          "admit": "Test"
+        }
+      }
+    }
   },
   "select_menus": {
     "create_appeal": {
