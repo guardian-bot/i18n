@@ -6,7 +6,9 @@
     "privacy_policy": "Privacy Policy",
     "extended_user_information": "Extendes User Information",
     "show_banlog": "Banlog",
-    "create_appeal_reply": "Create a Reply"
+    "create_appeal_reply": "Create a Reply",
+    "confirm_reply": "Send Reply",
+    "edit_reply": "Edit Message"
   },
   "modals": {
     "create_appeal": {
@@ -86,6 +88,10 @@
       "created_dm": {
         "title": "Appeal Created Successfully",
         "description": "Your appeal was successfully created. We will inform you about any updates here."
+      },
+      "confirm_staff_reply": {
+        "title": "Confirm your Reply",
+        "description": "The following message is sent to the user. Check the message and click \"Send Reply\" if everything is correct."
       }
     }
   }
