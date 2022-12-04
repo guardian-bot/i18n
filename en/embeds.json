@@ -41,6 +41,10 @@
             "value": "<t:{timestamp}:F>"
           }
         }
+      },
+      "created_dm": {
+        "title": "Appeal Created Successfully",
+        "description": "Your appeal was successfully created. We will inform you about any updates here."
       }
     }
   }
