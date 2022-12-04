@@ -1,0 +1,14 @@
+{
+  "modals": {
+    "create_appeal": {
+      "title": "Appeal for your Penalty",
+      "message": {
+        "label": "Message",
+        "placeholder": {
+          "deny": "Describe why you deny the alleged offense",
+          "admit": "Test"
+        }
+      }
+    }
+  }
+}
