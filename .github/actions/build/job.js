@@ -2,8 +2,42 @@ const core = require('@actions/core');
 const fs = require('fs');
 const path = require('path');
 
-function getFilesRecursive(p, root = false) {
-  const files = [];
+const mergeDeep = require('./deepmerge');
+
+function reduceFilesToObject(paths, root) {
+  let output = {};
+
+  for (const p of paths) {
+    const tree = p
+      .split(root)
+      .pop()
+      ?.split('/')
+      .filter((s) => s.length)
+      .map((s) => s.split('.').shift()) ?? [];
+    const content = JSON.parse(fs.readFileSync(p).toString());
+
+    if (!tree.length)
+      continue;
+
+    if (tree.length === 1 && tree[0] === 'base') {
+      output = mergeDeep(output, content);
+      continue;
+    }
+
+    output = mergeDeep(
+      output,
+      tree
+        .slice(0, -1)
+        .reverse()
+        .reduce((p, c) => ({ [c]: p }), { [tree[tree.length - 1]]: content }),
+    );
+  }
+
+  return output;
+}
+
+function getFilePathsRecursively(p, root = false) {
+  const paths = [];
 
   let result = [];
   try {
@@ -15,14 +49,13 @@ function getFilesRecursive(p, root = false) {
 
     if (['json'].includes(f.split('.').pop())) {
       console.log(`Found file ${f}`);
-      const content = JSON.parse(fs.readFileSync(path.join(p, f)).toString());
-      files.push(content);
+      paths.push(path.join(p, f));
     } else {
-      files.push(...getFilesRecursive(path.join(p, f)));
+      paths.push(...getFilePathsRecursively(path.join(p, f)));
     }
   }
 
-  return files;
+  return paths;
 }
 
 (async () => {
@@ -34,16 +67,16 @@ function getFilesRecursive(p, root = false) {
   
     for (const locale of locales) {
       console.log(`Merging ${locale}`);
-      
-      const objects = getFilesRecursive(path.join(githubWorkpace, locale), true);
-      const output = Object.assign({}, ...objects);
+
+      const paths = getFilePathsRecursively(path.join(githubWorkpace, locale), true);
+      const output = reduceFilesToObject(paths, path.join(githubWorkpace, locale));
 
       let lastOutput;
       try {
         lastOutput = JSON.parse(fs.readFileSync(path.join(githubWorkpace, locale, 'output.json')).toString());
       } catch (e) {}
 
-      if (!changes && !lastOutput || JSON.stringify(lastOutput) !== JSON.stringify(output))
+      if (!lastOutput || JSON.stringify(lastOutput) !== JSON.stringify(output))
         changes = true;
 
       fs.writeFileSync(

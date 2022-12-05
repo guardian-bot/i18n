@@ -1,8 +1,6 @@
 {
-  "buttons": {
-    "how_to_appeal": "Wie erstelle ich einen Entbannungsantrag?",
-    "privacy_policy": "Datenschutzrichtlinien",
-    "extended_user_information": "Erweiterte User Informationen",
-    "create_appeal_reply": "Antwort Erstellen"
-  }
+  "how_to_appeal": "Wie erstelle ich einen Entbannungsantrag?",
+  "privacy_policy": "Datenschutzrichtlinien",
+  "extended_user_information": "Erweiterte User Informationen",
+  "create_appeal_reply": "Antwort Erstellen"
 }

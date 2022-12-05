@@ -1,21 +1,19 @@
 {
-  "modals": {
-    "create_appeal": {
-      "title": "Appeal for your Penalty",
-      "message": {
-        "label": "Message",
-        "placeholder": {
-          "deny": "Describe why you deny the alleged offense",
-          "admit": "Test"
-        }
+  "create_appeal": {
+    "title": "Appeal for your Penalty",
+    "message": {
+      "label": "Message",
+      "placeholder": {
+        "deny": "Describe why you deny the alleged offense",
+        "admit": "Test"
       }
-    },
-    "create_appeal_reply": {
-      "title": "Send a Reply to the User",
-      "message": {
-        "label": "Message",
-        "placeholder": "This content will be sent to the user"
-      }
+    }
+  },
+  "create_appeal_reply": {
+    "title": "Send a Reply to the User",
+    "message": {
+      "label": "Message",
+      "placeholder": "This content will be sent to the user"
     }
   }
 }

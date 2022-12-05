@@ -1,6 +1,45 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ 86:
+/***/ ((module) => {
+
+/**
+ * Simple object check.
+ * @param item
+ * @returns {boolean}
+ */
+function isObject(item) {
+  return (item && typeof item === 'object' && !Array.isArray(item));
+}
+
+/**
+ * Deep merge two objects.
+ * @param target
+ * @param ...sources
+ */
+function mergeDeep(target, ...sources) {
+  if (!sources.length) return target;
+  const source = sources.shift();
+
+  if (isObject(target) && isObject(source)) {
+    for (const key in source) {
+      if (isObject(source[key])) {
+        if (!target[key]) Object.assign(target, { [key]: {} });
+        mergeDeep(target[key], source[key]);
+      } else {
+        Object.assign(target, { [key]: source[key] });
+      }
+    }
+  }
+
+  return mergeDeep(target, ...sources);
+}
+
+module.exports = mergeDeep;
+
+/***/ }),
+
 /***/ 351:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
@@ -2821,8 +2860,42 @@ const core = __nccwpck_require__(186);
 const fs = __nccwpck_require__(147);
 const path = __nccwpck_require__(17);
 
-function getFilesRecursive(p, root = false) {
-  const files = [];
+const mergeDeep = __nccwpck_require__(86);
+
+function reduceFilesToObject(paths, root) {
+  let output = {};
+
+  for (const p of paths) {
+    const tree = p
+      .split(root)
+      .pop()
+      ?.split('/')
+      .filter((s) => s.length)
+      .map((s) => s.split('.').shift()) ?? [];
+    const content = JSON.parse(fs.readFileSync(p).toString());
+
+    if (!tree.length)
+      continue;
+
+    if (tree.length === 1 && tree[0] === 'base') {
+      output = mergeDeep(output, content);
+      continue;
+    }
+
+    output = mergeDeep(
+      output,
+      tree
+        .slice(0, -1)
+        .reverse()
+        .reduce((p, c) => ({ [c]: p }), { [tree[tree.length - 1]]: content }),
+    );
+  }
+
+  return output;
+}
+
+function getFilePathsRecursively(p, root = false) {
+  const paths = [];
 
   let result = [];
   try {
@@ -2834,14 +2907,13 @@ function getFilesRecursive(p, root = false) {
 
     if (['json'].includes(f.split('.').pop())) {
       console.log(`Found file ${f}`);
-      const content = JSON.parse(fs.readFileSync(path.join(p, f)).toString());
-      files.push(content);
+      paths.push(path.join(p, f));
     } else {
-      files.push(...getFilesRecursive(path.join(p, f)));
+      paths.push(...getFilePathsRecursively(path.join(p, f)));
     }
   }
 
-  return files;
+  return paths;
 }
 
 (async () => {
@@ -2853,16 +2925,16 @@ function getFilesRecursive(p, root = false) {
   
     for (const locale of locales) {
       console.log(`Merging ${locale}`);
-      
-      const objects = getFilesRecursive(path.join(githubWorkpace, locale), true);
-      const output = Object.assign({}, ...objects);
+
+      const paths = getFilePathsRecursively(path.join(githubWorkpace, locale), true);
+      const output = reduceFilesToObject(paths, path.join(githubWorkpace, locale));
 
       let lastOutput;
       try {
         lastOutput = JSON.parse(fs.readFileSync(path.join(githubWorkpace, locale, 'output.json')).toString());
       } catch (e) {}
 
-      if (!changes && !lastOutput || JSON.stringify(lastOutput) !== JSON.stringify(output))
+      if (!lastOutput || JSON.stringify(lastOutput) !== JSON.stringify(output))
         changes = true;
 
       fs.writeFileSync(

@@ -1,14 +1,12 @@
 {
-  "select_menus": {
-    "create_appeal": {
-      "placeholder": "Do you believe you were rightly punished for your alleged offense?",
-      "options": {
-        "admit": {
-          "label": "Yes, I admit the alleged offense"
-        },
-        "deny": {
-          "label": "No, I deny the alleged offense"
-        }
+  "create_appeal": {
+    "placeholder": "Do you believe you were rightly punished for your alleged offense?",
+    "options": {
+      "admit": {
+        "label": "Yes, I admit the alleged offense"
+      },
+      "deny": {
+        "label": "No, I deny the alleged offense"
       }
     }
   }

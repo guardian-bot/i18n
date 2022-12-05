@@ -1,55 +1,53 @@
 {
-  "embeds": {
-    "penalty_notification": {
-      "title": "You've received a penalty on {server_name}",
-      "description": "Use the button below to appeal your penalty",
+  "penalty_notification": {
+    "title": "You've received a penalty on {server_name}",
+    "description": "Use the button below to appeal your penalty",
+    "fields": {
+      "custom_message": "Custom Server Information for Appeals"
+    }
+  },
+  "appeals": {
+    "initial": {
+      "title": "New Appeal",
+      "description": "new appeal wow omg cool",
       "fields": {
-        "custom_message": "Custom Server Information for Appeals"
+        "penalty_type": {
+          "name": "Penalty Type",
+          "value": "{type}"
+        },
+        "user": {
+          "name": "User",
+          "value": "{user}"
+        },
+        "user_choice": {
+          "name": "User Choice",
+          "value": {
+            "deny": "Deny",
+            "admit": "Admit"
+          }
+        },
+        "reason": {
+          "name": "Reason",
+          "empty": "*No reason available*"
+        },
+        "expiration_date": {
+          "name": "Expiration Date",
+          "value": "Expires on <t:{timestamp}:F>\nExpires in <t:{timestamp}:R>",
+          "empty": "*No expiration date set*"
+        },
+        "created_at": {
+          "name": "Created At",
+          "value": "<t:{timestamp}:F>"
+        }
       }
     },
-    "appeals": {
-      "initial": {
-        "title": "New Appeal",
-        "description": "new appeal wow omg cool",
-        "fields": {
-          "penalty_type": {
-            "name": "Penalty Type",
-            "value": "{type}"
-          },
-          "user": {
-            "name": "User",
-            "value": "{user}"
-          },
-          "user_choice": {
-            "name": "User Choice",
-            "value": {
-              "deny": "Deny",
-              "admit": "Admit"
-            }
-          },
-          "reason": {
-            "name": "Reason",
-            "empty": "*No reason available*"
-          },
-          "expiration_date": {
-            "name": "Expiration Date",
-            "value": "Expires on <t:{timestamp}:F>\nExpires in <t:{timestamp}:R>",
-            "empty": "*No expiration date set*"
-          },
-          "created_at": {
-            "name": "Created At",
-            "value": "<t:{timestamp}:F>"
-          }
-        }
-      },
-      "created_dm": {
-        "title": "Appeal Created Successfully",
-        "description": "Your appeal was successfully created. We will inform you about any updates here."
-      },
-      "confirm_staff_reply": {
-        "title": "Confirm your Reply",
-        "description": "The following message is sent to the user. Check the message and click \"Send Reply\" if everything is correct."
-      }
+    "created_dm": {
+      "title": "Appeal Created Successfully",
+      "description": "Your appeal was successfully created. We will inform you about any updates here."
+    },
+    "confirm_staff_reply": {
+      "title": "Confirm your Reply",
+      "description": "The following message is sent to the user. Check the message and click \"Send Reply\" if everything is correct."
     }
   }
 }
