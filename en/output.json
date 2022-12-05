@@ -1,43 +1,45 @@
 {
   "yes": "Yes",
   "no": "No",
-  "buttons": {
-    "how_to_appeal": "How to Appeal",
-    "privacy_policy": "Privacy Policy",
-    "extended_user_information": "Extendes User Information",
-    "show_banlog": "Banlog",
-    "create_appeal_reply": "Create a Reply",
-    "confirm_reply": "Send Reply",
-    "edit_reply": "Edit Message"
-  },
-  "modals": {
-    "create_appeal": {
-      "title": "Appeal for your Penalty",
-      "message": {
-        "label": "Message",
-        "placeholder": {
-          "deny": "Describe why you deny the alleged offense",
-          "admit": "Test"
+  "components": {
+    "buttons": {
+      "how_to_appeal": "How to Appeal",
+      "privacy_policy": "Privacy Policy",
+      "extended_user_information": "Extendes User Information",
+      "show_banlog": "Banlog",
+      "create_appeal_reply": "Create a Reply",
+      "confirm_reply": "Send Reply",
+      "edit_reply": "Edit Message"
+    },
+    "modals": {
+      "create_appeal": {
+        "title": "Appeal for your Penalty",
+        "message": {
+          "label": "Message",
+          "placeholder": {
+            "deny": "Describe why you deny the alleged offense",
+            "admit": "Test"
+          }
+        }
+      },
+      "create_appeal_reply": {
+        "title": "Send a Reply to the User",
+        "message": {
+          "label": "Message",
+          "placeholder": "This content will be sent to the user"
         }
       }
     },
-    "create_appeal_reply": {
-      "title": "Send a Reply to the User",
-      "message": {
-        "label": "Message",
-        "placeholder": "This content will be sent to the user"
-      }
-    }
-  },
-  "select_menus": {
-    "create_appeal": {
-      "placeholder": "Do you believe you were rightly punished for your alleged offense?",
-      "options": {
-        "admit": {
-          "label": "Yes, I admit the alleged offense"
-        },
-        "deny": {
-          "label": "No, I deny the alleged offense"
+    "select_menus": {
+      "create_appeal": {
+        "placeholder": "Do you believe you were rightly punished for your alleged offense?",
+        "options": {
+          "admit": {
+            "label": "Yes, I admit the alleged offense"
+          },
+          "deny": {
+            "label": "No, I deny the alleged offense"
+          }
         }
       }
     }
