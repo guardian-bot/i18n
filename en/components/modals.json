@@ -9,7 +9,7 @@
       }
     }
   },
-  "create_appeal_reply": {
+  "create_reply_staff": {
     "title": "Send a Reply to the User",
     "message": {
       "label": "Message",
