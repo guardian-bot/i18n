@@ -48,6 +48,16 @@
     "confirm_staff_reply": {
       "title": "Confirm your Reply",
       "description": "The following message is sent to the user. Check the message and click \"Send Reply\" if everything is correct."
+    },
+    "staff_reply_success": {
+      "title": "Message Created Successfully",
+      "description": "Your message has been successfully created.",
+      "fields": {
+        "pending": {
+          "name": "Message Pending",
+          "value": "Your message could not be sent to the user due to privacy settings. Until then, this message is waiting and marked in yellow. It will be delivered automatically as soon as the user is available again."
+        }
+      }
     }
   }
 }
