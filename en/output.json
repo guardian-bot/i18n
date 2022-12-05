@@ -78,7 +78,7 @@
           },
           "expiration_date": {
             "name": "Expiration Date",
-            "value": "Expires on <t:{timestamp}:F>\nExpires in <t:{timestamp}:R>",
+            "value": "Expires in <t:{timestamp}:R>",
             "empty": "*No expiration date set*"
           },
           "created_at": {
