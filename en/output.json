@@ -7,7 +7,7 @@
       "privacy_policy": "Privacy Policy",
       "extended_user_information": "Extendes User Information",
       "show_banlog": "Banlog",
-      "create_appeal_reply": "Create a Reply",
+      "create_reply": "Create a Reply",
       "confirm_reply": "Send Reply",
       "edit_reply": "Edit Message"
     },
@@ -22,7 +22,7 @@
           }
         }
       },
-      "create_appeal_reply": {
+      "create_reply_staff": {
         "title": "Send a Reply to the User",
         "message": {
           "label": "Message",
