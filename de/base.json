@@ -1,4 +1,5 @@
 {
   "yes": "Ja",
-  "no": "Nein"
+  "no": "Nein",
+  "received_new_message": "{emoji} {user} hat eine neue Nachricht gesendet"
 }
