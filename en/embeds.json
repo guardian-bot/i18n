@@ -58,6 +58,10 @@
           "value": "Your message could not be sent to the user due to privacy settings. Until then, this message is waiting and marked in yellow. It will be delivered automatically as soon as the user is available again."
         }
       }
+    },
+    "user_reply_success": {
+      "title": "Message Sent Successfully",
+      "description": "Your message was successfully delivered. We will inform you about any new information here."
     }
   }
 }
