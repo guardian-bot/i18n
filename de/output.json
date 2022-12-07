@@ -1,6 +1,7 @@
 {
   "yes": "Ja",
   "no": "Nein",
+  "received_new_message": "{emoji} {user} hat eine neue Nachricht gesendet",
   "components": {
     "buttons": {
       "how_to_appeal": "Wie erstelle ich einen Entbannungsantrag?",
